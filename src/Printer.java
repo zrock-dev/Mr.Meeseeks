@@ -14,8 +14,11 @@ public class Printer {
     }
 
     // This method asks the user to show a title.
-    private void askForGuess(){
+    protected void askForGuess(){
         System.out.println("*".repeat(CHARACTERS_HEIGHT));
         System.out.print("Enter a Number: "); // The input will be: Enter a number: 8
+    }
+    protected void ErrorMessage(){
+        System.out.println("You must enter an integer ");
     }
 }
