@@ -2,21 +2,21 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Backend {
-    protected int inputNumber(){
+    protected int inputNumber(Printer printer){
         Scanner scanner = new Scanner(System.in);
         int number;
         while(true)
         {
 
             try {
-                //message "Enter a Number"
+                printer.askForGuess();
                 number=  scanner.nextInt();
                 return number;
             }
             catch (InputMismatchException ex) {
-                //message "You must enter an integer"
+                printer.ErrorMessage();
+
             }
         }
     }
-
 }
