@@ -21,7 +21,7 @@ public class Printer {
 
     //One method is declared to return a message in case user's number is major than the mysterious number
     public final String getMajorNumberMessage() {
-        return "Your number is major than the mysterious number";
+        return "Your number is more than the mysterious number";
     }
 
     //One method is declared to return a message in case user's number is less than the mysterious number
