@@ -54,9 +54,12 @@ public class Backend {
             generateRandomNumber();
             int userNumber = inputNumber();
 
+            int tries = 1;
             while(compareNumbers(userNumber)){ // Keeps going until the user guess the right number.
                 userNumber = inputNumber();
+                tries ++;
             }
+            printer.showAttemptsNumber(tries);
             plays++;
         }
     }
