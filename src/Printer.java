@@ -5,7 +5,6 @@ public class Printer {
         CHARACTERS_HEIGHT = 50;
     }
 
-
     // This method shows the title at the start of the game.
     private void showTitle(){
         System.out.println("*".repeat(CHARACTERS_HEIGHT));
