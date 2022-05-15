@@ -24,11 +24,11 @@ public class Backend {
         }
     }
 
-    public void generateRandomNumber(){
+    private void generateRandomNumber(){
         //logic
     }
 
-    public boolean compareNumber(int userNumber){
+    protected boolean compareNumber(int userNumber){
         // Logic
         return false; // just to have output
     }
