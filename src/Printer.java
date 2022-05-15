@@ -6,6 +6,10 @@ public class Printer {
         showTitle();
     }
 
+    protected void showCounter(int count){
+        System.out.println("(" + count + "/3)");
+    }
+
     // This method shows the title at the start of the game.
     private void showTitle(){
         System.out.println("*".repeat(CHARACTERS_HEIGHT));
