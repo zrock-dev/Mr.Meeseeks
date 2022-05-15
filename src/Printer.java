@@ -3,7 +3,6 @@ public class Printer {
 
     Printer(){
         CHARACTERS_HEIGHT = 50;
-        showTitle(100);
     }
 
     protected void showAttemptsNumber(int count){
@@ -11,13 +10,13 @@ public class Printer {
     }
 
     // This method shows the title at the start of the game.
-    private void showTitle(int numberLimit){
+    protected void showTitle(int numberLimit){
         System.out.println("*".repeat(CHARACTERS_HEIGHT));
-        System.out.println("******** Guess the number between 1 - "+numberLimit+" ********");
+        System.out.println("******** Guess the number between 1 - "+ numberLimit +" ********");
         System.out.println("*".repeat(CHARACTERS_HEIGHT));
     }
 
-    // This method asks the user to show a title.
+    // This method asks the user for a number.
     protected void askForGuess(){
         System.out.println("\n" + "*".repeat(CHARACTERS_HEIGHT));
         System.out.print("Enter a number: "); // The input will be: Enter a number: 8

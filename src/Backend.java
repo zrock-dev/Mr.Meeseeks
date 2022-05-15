@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class Backend {
     Printer printer;
-    int hidden_number;
     int LIMIT_NUMBER;
+    int PLAYS_LIMIT;
 
     Backend(Printer printer){  // Moved here to be able to use input number
         this.printer = printer;
         LIMIT_NUMBER = 100;
-        generateRandomNumber();
+        PLAYS_LIMIT = 3;
     }
 
     private int inputNumber(){
@@ -28,34 +28,39 @@ public class Backend {
         }
     }
 
-    private void generateRandomNumber(){
-        hidden_number = (int) ((Math.random() * LIMIT_NUMBER) + 1);
+    private int generateRandomNumber(){
+        return (int) ((Math.random() * LIMIT_NUMBER) + 1);
     }
 
 
-    private boolean compareNumbers(int userNumber){
+    protected boolean compareNumbers(int userNumber, int hidden_number){
+        // The boolean value is meant to control the guess loop.
+
         if (userNumber == hidden_number){
             printer.showEquals();
             return false;
         }
 
         if (userNumber > hidden_number){
-            printer.showLessThan();
+            printer.showMoreThan();
 
         }else{
-            printer.showMoreThan();
+            printer.showLessThan();
         }
         return true; // The forced exit
     }
 
     protected void runGame(){
         int plays = 0;
-        while(plays != 3){ // Plays is the # of times the user will play the game
-            generateRandomNumber();
-            int userNumber = inputNumber();
+        while(plays != PLAYS_LIMIT){ // Plays loop: is the # of times the user will play the game
+            printer.showTitle(LIMIT_NUMBER);
+            int hidden_number = generateRandomNumber();
 
+            int userNumber = inputNumber();
             int tries = 1;
-            while(compareNumbers(userNumber)){ // Keeps going until the user guess the right number.
+
+            while(compareNumbers(userNumber, hidden_number)){ // guess loop
+                // Keeps going until the user guess the right number.
                 userNumber = inputNumber();
                 tries ++;
             }
