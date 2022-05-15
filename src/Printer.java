@@ -3,6 +3,7 @@ public class Printer {
 
     Printer(){
         CHARACTERS_HEIGHT = 50;
+        showTitle();
     }
 
     // This method shows the title at the start of the game.
@@ -18,22 +19,20 @@ public class Printer {
         System.out.print("Enter a Number: "); // The input will be: Enter a number: 8
     }
 
-    //One method is declared to return a message in case user's number is major than the mysterious number
-    protected final String getMajorNumberMessage() {
-        return "Your number is more than the mysterious number";
-    }
-
-    //One method is declared to return a message in case user's number is less than the mysterious number
-    protected final String getLess_number_message() {
-        return "Your number is less than the mysterious number";
-    }
-
-    //One method is declared in case the user's number is equals than de mysterious number
-    protected final String getEquals_number_message(){
-        return "Congratulations, you guessed the number";
-    }
-
     protected void ErrorMessage(){
         System.out.println("You must enter an integer ");
+    }
+
+    // In-game messages
+    protected final void showMoreThan() {
+        System.out.println("Your number is more than the mysterious number");
+    }
+
+    protected final void showLessThan() {
+        System.out.println("Your number is less than the mysterious number");
+    }
+
+    protected final void showEquals(){
+        System.out.println("Congratulations, you guessed the number");
     }
 }
