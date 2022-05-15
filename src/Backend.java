@@ -39,11 +39,11 @@ public class Backend {
             return false;
         }
 
-        if (hidden_number > userNumber){
+        if (userNumber > hidden_number){
             printer.showLessThan();
 
         }else{
-           printer.showMoreThan();
+            printer.showMoreThan();
         }
         return true; // The forced exit
     }
