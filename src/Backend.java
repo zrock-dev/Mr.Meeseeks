@@ -2,10 +2,18 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Backend {
+<<<<<<< Updated upstream
     Printer printer;
 
     Backend(Printer printer){  // Moved here to be able to use input number
         this.printer = printer;
+=======
+    int number,hiddennumber;
+
+    Backend(){
+        generateRandomNumber();
+
+>>>>>>> Stashed changes
     }
 
     protected int inputNumber(){
@@ -21,6 +29,25 @@ public class Backend {
             catch (InputMismatchException ex) {
                 printer.ErrorMessage();
             }
+        }
+    }
+    private int generateRandomNumber(){
+        hiddennumber = (int) ((Math.random() * 100) + 1);
+        return hiddennumber;
+    }
+    private boolean compareNumbers(int number,int hiddennumber){
+        this.number= number;
+        this.hiddennumber=hiddennumber;
+        if (number == hiddennumber){
+            return false;
+        }if (number>hiddennumber)
+        {
+            System.out.println("The number is less than yours");
+            return true;
+        } else
+        {
+            System.out.println("The number is major than yours");
+            return true;
         }
     }
 
