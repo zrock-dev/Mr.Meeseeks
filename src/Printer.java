@@ -6,8 +6,8 @@ public class Printer {
         showTitle();
     }
 
-    protected void showCounter(int count){
-        System.out.println("(" + count + "/3)");
+    protected void showAttemptsNumber(int count){
+        System.out.println("You tried " + count + " times.");
     }
 
     // This method shows the title at the start of the game.

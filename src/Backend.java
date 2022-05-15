@@ -4,9 +4,11 @@ import java.util.Scanner;
 public class Backend {
     Printer printer;
     int hidden_number;
+    int LIMIT_NUMBER;
 
     Backend(Printer printer){  // Moved here to be able to use input number
         this.printer = printer;
+        LIMIT_NUMBER = 100;
         generateRandomNumber();
     }
 
@@ -27,7 +29,7 @@ public class Backend {
     }
 
     private void generateRandomNumber(){
-        hidden_number = (int) ((Math.random() * 100) + 1);
+        hidden_number = (int) ((Math.random() * LIMIT_NUMBER) + 1);
     }
 
 
@@ -37,7 +39,7 @@ public class Backend {
             return false;
         }
 
-        if (userNumber > hidden_number){
+        if (hidden_number > userNumber){
             printer.showLessThan();
 
         }else{
@@ -58,4 +60,7 @@ public class Backend {
             plays++;
         }
     }
+
+
+
 }
