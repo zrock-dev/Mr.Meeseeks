@@ -42,10 +42,9 @@ public class Backend {
         }
 
         if (userNumber > hidden_number){
-            printer.showMoreThan();
-
-        }else{
             printer.showLessThan();
+        }else{
+            printer.showMoreThan();
         }
         return true; // The forced exit
     }
