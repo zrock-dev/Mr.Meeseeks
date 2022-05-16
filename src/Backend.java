@@ -18,11 +18,8 @@ public class Backend {
         while(true){
             try {
                 printer.askForGuess();
-                number=  scanner.nextInt();
-                return number;
-            }
-
-            catch (InputMismatchException ex) {
+                return new Scanner(System.in).nextInt();
+            } catch (InputMismatchException ex) {
                 printer.ErrorMessage();
             }
         }
