@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class BackendTest {
-    Backend backend = new Backend(new Printer());
+class CompareNumbersTest {
+    CompareNumbers compareNumbers = new CompareNumbers(new Printer());
     int hidden_number = 10;
 
 
@@ -15,18 +15,18 @@ class BackendTest {
     @Test
     void lessThan() {
         int minorNumber = hidden_number - 5;
-        assertTrue(backend.compareNumbers(minorNumber, hidden_number));
+        assertTrue(compareNumbers.compareNumbers(minorNumber, hidden_number));
         // prints:
     }
 
     @Test
     void moreThan() {
         int minorNumber = hidden_number + 5;
-        assertTrue(backend.compareNumbers(minorNumber, hidden_number));
+        assertTrue(compareNumbers.compareNumbers(minorNumber, hidden_number));
     }
 
     @Test
     void bothEqual(){
-        assertFalse(backend.compareNumbers(hidden_number, hidden_number));
+        assertFalse(compareNumbers.compareNumbers(hidden_number, hidden_number));
     }
 }
