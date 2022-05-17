@@ -1,10 +1,13 @@
 public class Printer {
+    // All methods are in protected in case the project will be more complex in the future.
     private final int CHARACTERS_HEIGHT; //To have a uniform size in the console.
 
+    // Defining the size of the game in screen, 50 characters in this case.
     Printer(){
         CHARACTERS_HEIGHT = 50;
     }
 
+    // Method to show user's attempts number.
     protected void showAttemptsNumber(int count){
         System.out.println("You tried " + count + " times.");
     }
@@ -22,11 +25,12 @@ public class Printer {
         System.out.print("Enter a number: "); // The input will be: Enter a number: 8
     }
 
+    // Method defined to show a message about out of range input .
     protected void ErrorMessage(){
         System.out.println("You must enter an integer");
     }
 
-    // In-game messages
+    // In-game messages to show each possibility resultant of comparing the numbers.
     protected final void showMoreThan() {
         System.out.println("Your number is more than the mysterious number");
     }

@@ -1,16 +1,21 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Backend {
+public class GameController {
+    // All methods are protected in case the project will be more complex in the future.
     Printer printer;
     int LIMIT_NUMBER;
     int PLAYS_LIMIT;
 
-    Backend(Printer printer){
+    /* the limit of attempts and the Printer class are initialized in the constructor
+    to be able to use their methods
+     */
+    GameController(Printer printer){
         this.printer = printer;
         LIMIT_NUMBER = 100;
         PLAYS_LIMIT = 3;
     }
+    
     //Receive the number entered by the user
     private int inputNumber(){
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +52,8 @@ public class Backend {
         }
         return true;
     }
-    // This method controls how many times the user will play the game.
+
+    //this method implements the different methods of the classes to start the game
     protected void runGame(){
         int plays = 0;
         while(plays != PLAYS_LIMIT){

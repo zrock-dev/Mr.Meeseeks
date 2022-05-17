@@ -2,8 +2,8 @@
 public class Main {
     public static void main(String[] args) {
         Printer printer = new Printer();
-        Backend backend  = new Backend(printer);
+        GameController gameController = new GameController(printer);
 
-        backend.runGame();
+        gameController.runGame();
     }
 }
