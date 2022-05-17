@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BackendTest {
     Backend backend = new Backend(new Printer());
-    int hidden_number = 10;
+    int hiddenNumber = 10;
 
 
     /*
@@ -14,19 +14,19 @@ class BackendTest {
     */
     @Test
     void lessThan() {
-        int minorNumber = hidden_number - 5;
-        assertTrue(backend.compareNumbers(minorNumber, hidden_number));
+        int minorNumber = hiddenNumber - 5;
+        assertTrue(backend.compareNumbers(minorNumber, hiddenNumber));
         // prints:
     }
 
     @Test
     void moreThan() {
-        int minorNumber = hidden_number + 5;
-        assertTrue(backend.compareNumbers(minorNumber, hidden_number));
+        int moreThanHiddenNumber = hiddenNumber + 5;
+        assertTrue(backend.compareNumbers(moreThanHiddenNumber, hiddenNumber));
     }
 
     @Test
     void bothEqual(){
-        assertFalse(backend.compareNumbers(hidden_number, hidden_number));
+        assertFalse(backend.compareNumbers(hiddenNumber, hiddenNumber));
     }
 }
