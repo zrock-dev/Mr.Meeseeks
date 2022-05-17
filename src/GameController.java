@@ -38,8 +38,6 @@ public class GameController {
      to the randomly generated number and returns a boolean value
      */
     protected boolean compareNumbers(int userNumber, int hidden_number){
-       
-
         if (userNumber == hidden_number){
             printer.showEquals();
             return false;
