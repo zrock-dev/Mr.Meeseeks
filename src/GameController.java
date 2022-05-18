@@ -18,7 +18,7 @@ public class GameController {
         PLAYS_LIMIT = 3;
         scanner = new Scanner(System.in);
     }
-    
+
     //Receive the number entered by the user
     private int inputNumber(){
         try {
@@ -38,6 +38,7 @@ public class GameController {
     /*Checks if the number entered by the user is less than, greater than or equal
      to the randomly generated number and returns a boolean value
      */
+
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
         // The boolean value is meant to control the guess loop.
 
