@@ -1,22 +1,26 @@
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameController {
 
     // All methods are protected in case the project will be more complex in the future.
     Printer printer;
-    int LIMIT_NUMBER;
+    int MAX_VALUE;
     int PLAYS_LIMIT;
     Scanner scanner;
+    Random random;
 
     /*  The limit of attempts and the Printer class are initialized in the constructor
         to be able to use their methods
      */
     GameController(Printer printer){
         this.printer = printer;
-        LIMIT_NUMBER = 100;
-        PLAYS_LIMIT = 3;
         scanner = new Scanner(System.in);
+        random = new Random();
+        MAX_VALUE = 100;
+        PLAYS_LIMIT = 3;
+
     }
 
     //Receive the number entered by the user
@@ -32,7 +36,7 @@ public class GameController {
 
     //Generate a random number
     private int generateRandomNumber(){
-        return (int) ((Math.random() * LIMIT_NUMBER) + 1);
+        return random.nextInt(100);
     }
 
     /*Checks if the number entered by the user is less than, greater than or equal
@@ -46,7 +50,7 @@ public class GameController {
             printer.showCongratulations();
             return true;
 
-        } else if (userInput == 0) {
+        } else if (userInput <= 0 || userInput >= (MAX_VALUE + 1)) {
             printer.errorMessage();
             return false;
         }
@@ -63,7 +67,7 @@ public class GameController {
     protected void runGame(){
         int plays = 0;
         while(plays != PLAYS_LIMIT){
-            printer.showTitle(LIMIT_NUMBER);
+            printer.showTitle(MAX_VALUE);
             int hiddenNumber = generateRandomNumber();
 
             int userInput = inputNumber();
