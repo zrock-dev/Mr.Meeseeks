@@ -34,11 +34,11 @@ public class Printer {
 
     // In-game messages to show each possibility resultant of comparing the numbers.
     public final void showMoreThan() {
-        System.out.println("Your number is more than the mysterious number");
+        System.out.println("Enter a higher number");
     }
 
     public final void showLessThan() {
-        System.out.println("Your number is less than the mysterious number");
+        System.out.println("Enter a smaller number");
     }
 
     public final void showCongratulations(){
