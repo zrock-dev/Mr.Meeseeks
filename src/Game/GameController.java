@@ -1,6 +1,9 @@
+package Game;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import UserView.Printer;
 
 public class GameController {
 
@@ -10,22 +13,22 @@ public class GameController {
     Scanner scanner;
     Random random;
 
-    /*  The limit of attempts and the Printer class are initialized in the constructor
+    /*  The limit of attempts and the UserView.Printer class are initialized in the constructor
         to be able to use their methods
      */
-    GameController(Printer printer){
+    public GameController(Printer printer){
         this.printer = printer;
         scanner = new Scanner(System.in);
         random = new Random();
         MAX_VALUE = 100;
     }
 
-    private int generateRandomNumber(){
+    protected int generateRandomNumber(){
         return random.nextInt(100);
     }
 
     //Receive the number entered by the user
-    private int inputNumber(){
+    protected int inputNumber(){
         try {
             printer.askForGuess();
             return scanner.nextInt();
@@ -55,6 +58,10 @@ public class GameController {
             if (userInput <= 0 || userInput >= (MAX_VALUE + 1)) {
             printer.errorMessage();
             }
+    }
+
+    protected int getMAX_VALUE(){
+        return MAX_VALUE;
     }
 
     //this method implements the different methods of the classes to start the game
