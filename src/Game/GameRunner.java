@@ -8,6 +8,7 @@ public class GameRunner {
     GameController gameController;
 
     public GameRunner(){
+        this.PLAYS_LIMIT = 3;
         printer = new Printer();
         gameController = new GameController(printer);
     }
