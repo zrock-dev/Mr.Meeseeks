@@ -7,7 +7,6 @@ public class GameController {
     // All methods are protected in case the project will be more complex in the future.
     Printer printer;
     int MAX_VALUE;
-    int PLAYS_LIMIT;
     Scanner scanner;
     Random random;
 
@@ -19,8 +18,10 @@ public class GameController {
         scanner = new Scanner(System.in);
         random = new Random();
         MAX_VALUE = 100;
-        PLAYS_LIMIT = 3;
+    }
 
+    private int generateRandomNumber(){
+        return random.nextInt(100);
     }
 
     //Receive the number entered by the user
@@ -34,26 +35,13 @@ public class GameController {
         }
     }
 
-    //Generate a random number
-    private int generateRandomNumber(){
-        return random.nextInt(100);
-    }
-
-    /*Checks if the number entered by the user is less than, greater than or equal
-     to the randomly generated number and returns a boolean value
-     */
-
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
         // The boolean value is meant to control the guess loop.
 
         if (userInput == hiddenNumber){
             printer.showCongratulations();
             return true;
-
-        } else if (userInput <= 0 || userInput >= (MAX_VALUE + 1)) {
-            printer.errorMessage();
-            return false;
-        }
+        } else{ checkFinals(userInput); }
 
         if (userInput < hiddenNumber){
             printer.showLessThan();
@@ -63,22 +51,11 @@ public class GameController {
         return false;
     }
 
-    //this method implements the different methods of the classes to start the game
-    protected void runGame(){
-        int plays = 0;
-        while(plays != PLAYS_LIMIT){
-            printer.showTitle(MAX_VALUE);
-            int hiddenNumber = generateRandomNumber();
-
-            int userInput = inputNumber();
-            int numberOfTriesUntilGuess = 1;
-
-            while(!isTheHiddenNumber(userInput, hiddenNumber)){
-                userInput = inputNumber();
-                numberOfTriesUntilGuess++;
+    private void checkFinals(int userInput) {
+            if (userInput <= 0 || userInput >= (MAX_VALUE + 1)) {
+            printer.errorMessage();
             }
-            printer.showNumberOfAttempts(numberOfTriesUntilGuess);
-            plays++;
-        }
     }
+
+    //this method implements the different methods of the classes to start the game
 }
