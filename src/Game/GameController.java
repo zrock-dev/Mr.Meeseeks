@@ -7,16 +7,16 @@ import UserView.Printer;
 
 public class GameController {
 
-    // All methods are protected in case the project will be more complex in the future.
-    Printer printer;
-    int MAX_VALUE;
-    Scanner scanner;
-    Random random;
+    protected Printer printer;
+    protected Scanner scanner;
+    protected Random random;
 
-    /*  The limit of attempts and the UserView.Printer class are initialized in the constructor
-        to be able to use their methods
-     */
-    public GameController(Printer printer){
+    private final int MAX_VALUE;
+    boolean isTheHiddenNumber;
+    boolean validNumber;
+
+
+    protected GameController(Printer printer){
         this.printer = printer;
         scanner = new Scanner(System.in);
         random = new Random();
@@ -39,14 +39,14 @@ public class GameController {
     }
 
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
-        // The boolean value is meant to control the guess loop.
-        boolean isHidden = false;
+        isTheHiddenNumber = false;
+
         if (userInput == hiddenNumber){
             printer.showCongratulations();
-            isHidden = true;
+            isTheHiddenNumber = true;
         }
 
-        if (isNumberInRange(userInput)) {
+        if (isNumberInRange(userInput) && !isTheHiddenNumber) {
             if (userInput > hiddenNumber) {
                 printer.showLessThan();
             }
@@ -55,23 +55,20 @@ public class GameController {
                 printer.showMoreThan();
             }
         }
-        return isHidden;
-
+        return isTheHiddenNumber;
     }
+
     public boolean isNumberInRange(int userInput){
-        boolean validNumber;
-            if (userInput > 0 && userInput < (MAX_VALUE + 1))
-            {
-             validNumber = true;
-            }
-            else {
-                validNumber = false;
-                printer.errorMessage();
-            }
-        return validNumber;
+        if (userInput > 0 && userInput < (MAX_VALUE + 1))
+        {
+            validNumber = true;
         }
-
-
+        else {
+            validNumber = false;
+            printer.errorMessage();
+        }
+        return validNumber;
+    }
 
     protected int getMAX_VALUE(){
         return MAX_VALUE;
