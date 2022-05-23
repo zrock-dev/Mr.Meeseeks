@@ -5,6 +5,14 @@ import java.util.Random;
 import java.util.Scanner;
 import UserView.Printer;
 
+/**
+ * This class controls all the parameters of the code.
+ * This class controls the comparison between hidden number and the user´s number,
+ * the range of the user´s number, gives a random number for the hidden number,
+ * receives a number from the user.
+ *
+ * @author      Mr.Meeseeks
+ */
 public class GameController {
 
     protected Printer printer;
@@ -15,7 +23,13 @@ public class GameController {
     boolean isTheHiddenNumber;
     boolean validNumber;
 
-
+    /**
+     * Class' constructor
+     * The constructor was created to instantiate Random and Scanner,
+     * also gives a number for MAX_VALUE.
+     *
+     * @param printer calls the Printer class to show the respective message
+     */
     protected GameController(Printer printer){
         this.printer = printer;
         scanner = new Scanner(System.in);
@@ -23,6 +37,11 @@ public class GameController {
         MAX_VALUE = 100;
     }
 
+    /**
+     * Generates a random number.
+     *
+     * @return returns random with the random number in MAX_VALUE
+     */
     protected int generateRandomNumber(){
         return random.nextInt(MAX_VALUE);
     }
