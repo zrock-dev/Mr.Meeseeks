@@ -16,11 +16,14 @@ public class GameRunner {
 
     public void runGame(){
         int plays = 0;
+        int hiddenNumber;
+        int userInput;
+        int numberOfTriesUntilGuess;
         while(plays != PLAYS_LIMIT){
             printer.showTitle(gameController.getMAX_VALUE());
-            int hiddenNumber = gameController.generateRandomNumber();
-            int userInput = gameController.inputNumber();
-            int numberOfTriesUntilGuess = 1;
+            hiddenNumber = gameController.generateRandomNumber();
+            userInput = gameController.inputNumber();
+            numberOfTriesUntilGuess = 1;
 
             while(!gameController.isTheHiddenNumber(userInput, hiddenNumber)){
                 userInput = gameController.inputNumber();

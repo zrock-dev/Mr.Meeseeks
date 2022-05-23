@@ -40,25 +40,38 @@ public class GameController {
 
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
         // The boolean value is meant to control the guess loop.
-
+        boolean isHidden = false;
         if (userInput == hiddenNumber){
             printer.showCongratulations();
-            return true;
-        } else{ checkFinals(userInput); }
-
-        if (userInput < hiddenNumber){
-            printer.showLessThan();
-        }else{
-            printer.showMoreThan();
+            isHidden = true;
         }
-        return false;
-    }
 
-    private void checkFinals(int userInput) {
-            if (userInput <= 0 || userInput >= (MAX_VALUE + 1)) {
-            printer.errorMessage();
+        if (isNumberInRange(userInput)) {
+            if (userInput > hiddenNumber) {
+                printer.showLessThan();
             }
+            else
+            {
+                printer.showMoreThan();
+            }
+        }
+        return isHidden;
+
     }
+    public boolean isNumberInRange(int userInput){
+        boolean validNumber;
+            if (userInput > 0 && userInput < (MAX_VALUE + 1))
+            {
+             validNumber = true;
+            }
+            else {
+                validNumber = false;
+                printer.errorMessage();
+            }
+        return validNumber;
+        }
+
+
 
     protected int getMAX_VALUE(){
         return MAX_VALUE;
