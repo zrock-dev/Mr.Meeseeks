@@ -46,6 +46,11 @@ public class GameController {
     }
 
 
+    /**
+     *Prevent user from entering characters
+     *
+     * @return returns a value 0, represent a value that cannot be entered by the user
+     */
     protected int inputNumber(){
         try {
             printer.askForGuess();
@@ -55,6 +60,15 @@ public class GameController {
             return 0;
         }
     }
+
+    /**
+     * Compare the number entered by the user
+     *
+     * @param userInput is the number entered by the user
+     * @param hiddenNumber is the hidden number
+     * @return returns a boolean value for the second while of the
+     *      runGame method of the GameRunner class.
+     */
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
         isTheHiddenNumber = false;
 
@@ -66,27 +80,34 @@ public class GameController {
         if (isNumberInRange(userInput) && !isTheHiddenNumber) {
             if (userInput > hiddenNumber) {
                 printer.showLessThan();
-            }
-            else
-            {
+            } else {
                 printer.showMoreThan();
             }
         }
         return isTheHiddenNumber;
     }
 
+    /**
+     * Prevents the user from entering a number outside the range of 0 - 100
+     *
+     * @param userInput is the number entered by the user
+     * @return returns a boolean value for the second if of the isTheHiddenNumber method
+     */
     public boolean isNumberInRange(int userInput){
-        if (userInput > 0 && userInput < (MAX_VALUE + 1))
-        {
+        if (userInput > 0 && userInput < (MAX_VALUE + 1)) {
             validNumber = true;
-        }
-        else {
+        } else {
             validNumber = false;
             printer.errorMessage();
         }
         return validNumber;
     }
 
+    /**
+     *This is a getter method for the MAX_VALUE variable
+     *
+     * @return returns the variable MAX_VALUE of type int
+     */
     protected int getMAX_VALUE(){
         return MAX_VALUE;
     }
