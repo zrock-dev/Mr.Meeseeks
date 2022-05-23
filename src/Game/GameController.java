@@ -24,10 +24,10 @@ public class GameController {
     }
 
     protected int generateRandomNumber(){
-        return random.nextInt(100);
+        return random.nextInt(MAX_VALUE);
     }
 
-    //Receive the number entered by the user
+
     protected int inputNumber(){
         try {
             printer.askForGuess();
@@ -37,7 +37,6 @@ public class GameController {
             return 0;
         }
     }
-
     protected boolean isTheHiddenNumber(int userInput, int hiddenNumber){
         isTheHiddenNumber = false;
 
@@ -74,5 +73,5 @@ public class GameController {
         return MAX_VALUE;
     }
 
-    //this method implements the different methods of the classes to start the game
+    //7
 }
