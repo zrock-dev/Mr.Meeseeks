@@ -15,7 +15,6 @@ public class Printer {
     private final int CHARACTERS_HEIGHT; //To have a uniform size in the console.
 
     /**
-     * Class' constructor.
      * The constructor is created beside a specific value for the
      * CHARACTERS_HEIGHT variable, in this way all the size-in-screen game will be set
      * by only a number.

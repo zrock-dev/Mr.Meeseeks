@@ -7,8 +7,8 @@ import UserView.Printer;
 
 /**
  * This class controls all the parameters of the code.
- * This class controls the comparison between hidden number and the user´s number,
- * the range of the user´s number, gives a random number for the hidden number,
+ * This class controls the comparison between hidden number and the user's number,
+ * the range of the user's number, gives a random number for the hidden number,
  * receives a number from the user.
  *
  * @author      Mr.Meeseeks
@@ -24,9 +24,8 @@ public class GameController {
     boolean validNumber;
 
     /**
-     * Class' constructor
      * The constructor was created to instantiate Random and Scanner,
-     * also gives a number for MAX_VALUE.
+     * also gives a final value to MAX_VALUE.
      *
      * @param printer calls the Printer class to show the respective message
      */
@@ -38,9 +37,9 @@ public class GameController {
     }
 
     /**
-     * Generates a random number.
+     * This method generates a random number.
      *
-     * @return returns random with the random number in MAX_VALUE
+     * @return returns random integer within the range in MAX_VALUE
      */
     protected int generateRandomNumber(){
         return random.nextInt(MAX_VALUE);
